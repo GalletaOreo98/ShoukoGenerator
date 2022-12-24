@@ -1,0 +1,16 @@
+body {
+    background: #a8a8dd;
+}
+
+#gameCanvas {
+    background: #efeff1;
+    display: block;
+    margin: auto;
+    border: solid 5px #7a5371;
+}
+
+#download-btn {
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+}
