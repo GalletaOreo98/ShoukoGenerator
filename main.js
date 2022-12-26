@@ -152,9 +152,17 @@ for (const item of dataImgJSON) {
 document.body.appendChild(ul);
 
 // Boton para guardar canvas
-downloadBtn.addEventListener('click', function () {
+downloadBtn.addEventListener('click', async function () {
+    // Crear el canvas que dibujará la imagen en tamaño original al momento de descargar
+    const canvasToDownload = document.createElement('canvas');
+    // Asignar ancho y alto al canvas nuevo (imagen base por defecto 657px) para la descarga solamente
+    canvasToDownload.width = 657;
+    canvasToDownload.height = 657;
+    
+    await drawImagesToDownload(dataImgArray, canvasToDownload);
+
     // Obtener la imagen del canvas como una URL de datos
-    const imgData = canvas.toDataURL();
+    const imgData = canvasToDownload.toDataURL();
 
     // Crear un elemento a
     const a = document.createElement('a');
@@ -163,7 +171,7 @@ downloadBtn.addEventListener('click', function () {
     a.href = imgData;
 
     // Asignar un nombre al archivo
-    a.download = 'mi-imagen.png';
+    a.download = 'my-shouko.png';
 
     // Añadir el elemento a al documento
     document.body.appendChild(a);
@@ -174,3 +182,13 @@ downloadBtn.addEventListener('click', function () {
     // Eliminar el elemento a del documento
     document.body.removeChild(a);
 });
+
+async function drawImagesToDownload(UpdatedArray, canvas) {
+    const ctxToDownload = canvas.getContext('2d');
+    return new Promise(resolve => {
+      UpdatedArray.forEach(element => {
+        ctxToDownload.drawImage(element, 0, 0, canvas.width, canvas.height);
+      });
+      resolve();
+    });
+  }
