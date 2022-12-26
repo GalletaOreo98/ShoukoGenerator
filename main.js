@@ -3,12 +3,18 @@ const dataImgJSON = [
     {
         name: "Base",
         src: "assets/data/Base.png",
+        layer: 0,
         options: [{}]
     },
     {
         name: "Book",
-        src: "assets/data/books/Python.png",
+        src: "assets/data/Null.png",
+        layer: 1,
         options: [
+            {
+                name: "",
+                src: "assets/data/Null.png"
+            },
             {
                 name: "Python",
                 src: "assets/data/books/Python.png"
@@ -28,7 +34,43 @@ const dataImgJSON = [
         ]
     },
     {
+        name: "Hat",
+        src: "assets/data/Null.png",
+        layer: 2,
+        options: [
+            {
+                name: "",
+                src: "assets/data/Null.png"
+            },
+            {
+                name: "Birthday",
+                src: "assets/data/hats/Birthday.png"
+            },
+            {
+                name: "Cone",
+                src: "assets/data/hats/Cone.png"
+            },
+            {
+                name: "Mexico",
+                src: "assets/data/hats/Mexico.png"
+            },
+            {
+                name: "Straw",
+                src: "assets/data/hats/Straw.png"
+            },
+            {
+                name: "Christmas",
+                src: "assets/data/hats/Christmas.png"
+            },
+            {
+                name: "Sunflower Crown",
+                src: "assets/data/hats/Sunflower_Crown.png"
+            }
+        ]
+    },
+    {
         name: "Hands",
+        layer: 3,
         src: "assets/data/Manos.png",
         options: [{}]
     }
@@ -48,7 +90,7 @@ if (isMobile) {
     canvas.width = window.innerWidth * 0.85;
     canvas.height = canvas.width;
 } else {
-    // Ajustar canvas a tamaño de imagen real (657x657px)
+    // Ajustar canvas a tamaño para pc
     canvas.width = window.innerWidth * 0.40;
     canvas.height = canvas.width;
 }
@@ -101,8 +143,8 @@ for (const item of dataImgJSON) {
 
     select.addEventListener('change', function () {
         const src = this.value;
-        dataImgArray[1].src = src;
-        drawImages([dataImgArray[1]]);
+        dataImgArray[item.layer].src = src;
+        drawImages([dataImgArray[item.layer]]);
     });
 }
 
