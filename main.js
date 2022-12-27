@@ -30,6 +30,10 @@ const dataImgJSON = [
             {
                 name: "Kotlin",
                 src: "assets/data/books/Kotlin.png"
+            },
+            {
+                name: "Rust",
+                src: "assets/data/books/Rust.png"
             }
         ]
     },
@@ -55,7 +59,7 @@ const dataImgJSON = [
                 src: "assets/data/hats/Mexico.png"
             },
             {
-                name: "Straw",
+                name: "Straw Hat",
                 src: "assets/data/hats/Straw.png"
             },
             {
