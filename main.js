@@ -38,9 +38,44 @@ const dataImgJSON = [
         ]
     },
     {
-        name: "Hat",
+        name: "Pet",
         src: "assets/data/Null.png",
         layer: 2,
+        options: [
+            {
+                name: "",
+                src: "assets/data/Null.png"
+            },
+            {
+                name: "Cat Milk",
+                src: "assets/data/pets/Cat_Milk.png"
+            },
+            {
+                name: "Cat Unicorn",
+                src: "assets/data/pets/Cat_Unicorn.png"
+            },
+            {
+                name: "Cat",
+                src: "assets/data/pets/Cat.png"
+            },
+            {
+                name: "Dog",
+                src: "assets/data/pets/Dog.png"
+            },
+            {
+                name: "Dolphin",
+                src: "assets/data/pets/Dolphin.png"
+            },
+            {
+                name: "Snake",
+                src: "assets/data/pets/Snake.png"
+            }
+        ]
+    },
+    {
+        name: "Hat",
+        src: "assets/data/Null.png",
+        layer: 3,
         options: [
             {
                 name: "",
@@ -74,7 +109,7 @@ const dataImgJSON = [
     },
     {
         name: "Hands",
-        layer: 3,
+        layer: 4,
         src: "assets/data/Manos.png",
         options: [{}]
     }
