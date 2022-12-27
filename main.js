@@ -115,7 +115,17 @@ async function drawImages(UpdatedArray) {
     });
 }
 
+// async function redrawImages(UpdatedArray) {
+//     return new Promise(resolve => {
+//       ctx.clearRect(0, 0, canvas.width, canvas.height);
+//       UpdatedArray.forEach(element => {
+//         ctx.drawImage(element, 0, 0, canvas.width, canvas.height);
+//       });
+//       resolve();
+//     });
+// }
 
+// Pintar imagenes de inicio
 drawImages(dataImgArray);
 
 
@@ -148,10 +158,9 @@ for (const item of dataImgJSON) {
     });
 }
 
-// Agregar al HTML
 document.body.appendChild(ul);
 
-// Boton para guardar canvas
+// Boton para descargar imagen del canvas
 downloadBtn.addEventListener('click', async function () {
     // Crear el canvas que dibujará la imagen en tamaño original al momento de descargar
     const canvasToDownload = document.createElement('canvas');
@@ -191,4 +200,4 @@ async function drawImagesToDownload(UpdatedArray, canvas) {
       });
       resolve();
     });
-  }
+}
