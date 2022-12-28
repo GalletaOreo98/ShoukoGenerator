@@ -1,120 +1,15 @@
 // Json Data Inicial
-const dataImgJSON = [
-    {
-        name: "Base",
-        src: "assets/data/Base.png",
-        layer: 0,
-        options: [{}]
-    },
-    {
-        name: "Book",
-        src: "assets/data/Null.png",
-        layer: 1,
-        options: [
-            {
-                name: "",
-                src: "assets/data/Null.png"
-            },
-            {
-                name: "Python",
-                src: "assets/data/books/Python.png"
-            },
-            {
-                name: "Java",
-                src: "assets/data/books/Java.png"
-            },
-            {
-                name: "C",
-                src: "assets/data/books/C.png"
-            },
-            {
-                name: "Kotlin",
-                src: "assets/data/books/Kotlin.png"
-            },
-            {
-                name: "Rust",
-                src: "assets/data/books/Rust.png"
-            }
-        ]
-    },
-    {
-        name: "Pet",
-        src: "assets/data/Null.png",
-        layer: 2,
-        options: [
-            {
-                name: "",
-                src: "assets/data/Null.png"
-            },
-            {
-                name: "Cat Milk",
-                src: "assets/data/pets/Cat_Milk.png"
-            },
-            {
-                name: "Cat Unicorn",
-                src: "assets/data/pets/Cat_Unicorn.png"
-            },
-            {
-                name: "Cat",
-                src: "assets/data/pets/Cat.png"
-            },
-            {
-                name: "Dog",
-                src: "assets/data/pets/Dog.png"
-            },
-            {
-                name: "Dolphin",
-                src: "assets/data/pets/Dolphin.png"
-            },
-            {
-                name: "Snake",
-                src: "assets/data/pets/Snake.png"
-            }
-        ]
-    },
-    {
-        name: "Hat",
-        src: "assets/data/Null.png",
-        layer: 3,
-        options: [
-            {
-                name: "",
-                src: "assets/data/Null.png"
-            },
-            {
-                name: "Birthday",
-                src: "assets/data/hats/Birthday.png"
-            },
-            {
-                name: "Cone",
-                src: "assets/data/hats/Cone.png"
-            },
-            {
-                name: "Mexico",
-                src: "assets/data/hats/Mexico.png"
-            },
-            {
-                name: "Straw Hat",
-                src: "assets/data/hats/Straw.png"
-            },
-            {
-                name: "Christmas",
-                src: "assets/data/hats/Christmas.png"
-            },
-            {
-                name: "Sunflower Crown",
-                src: "assets/data/hats/Sunflower_Crown.png"
-            }
-        ]
-    },
-    {
-        name: "Hands",
-        layer: 4,
-        src: "assets/data/Manos.png",
-        options: [{}]
-    }
-]
+const dataImgJSON = [];
 
+async function loadJSON() {
+  const response = await fetch('assets/data/json/Shouko_Komi.json'); 
+  const data = await response.json();
+  dataImgJSON.push(...data);
+}
+
+//Cargar data JSON
+loadJSON().then(() => {
+//Run main una vez cargado el .json
 // Obtén una referencia al canvas y al contexto de dibujo
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -240,3 +135,6 @@ async function drawImagesToDownload(UpdatedArray, canvas) {
       resolve();
     });
 }
+
+});
+
